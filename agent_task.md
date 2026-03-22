@@ -6,6 +6,7 @@
   2. `help_articles_mcp`: Troubleshooting and FAQs.
   3. `contract_templates_mcp`: Standardized legal templates.
   4. `user_documents_mcp`: Specific user history and custom documents.
+- **Client Requirement:** The architecture and prompt must be fully compatible and optimized for **Azure OpenAI LLMs**.
 
 **Execution Flow:**
 - The Root Agent receives the user's query and interrogates all 4 MCP servers in parallel to fetch top-K relevant chunks from each topic.
@@ -19,3 +20,4 @@ Create a comprehensive system prompt for the Root Agent that strictly enforces t
 3. **Response Generation:** Formulate a cohesive answer relying *only* on the most reliable, high-scoring chunks. Do not hallucinate information outside the provided context.
 4. **Source Attribution:** Clearly cite which of the 4 sources and which specific chunks were used to synthesize the final answer.
 5. **Fallback Mechanism:** If all returned chunks have low scores or lack relevance, explicitly inform the user that the requested information could not be found within the corporate knowledge base.
+6. **Azure OpenAI Integration:** Structure the instructions and token boundaries to account for Azure OpenAI deployment specifications.
